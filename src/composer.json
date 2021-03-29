@@ -1,0 +1,8 @@
+{
+    "name": "example/example",
+    "description": "",
+    "license": "MIT",
+    "require": {
+        "eventsauce/eventsauce": "^0.8.2"
+    }
+}
