@@ -27,6 +27,7 @@ function upgradeEventSauceFrom0to1(ContainerConfigurator $containerConfigurator)
     $services->set(AddReturnTypeDeclarationRector::class)
         ->call('configure', [[
             AddReturnTypeDeclarationRector::METHOD_RETURN_TYPES => ValueObjectInliner::inline([
+                new AddReturnTypeDeclaration('EventSauce\\EventSourcing\\Consumer', 'handle', new VoidType()),
                 new AddReturnTypeDeclaration('EventSauce\\EventSourcing\\MessageConsumer', 'handle', new VoidType()),
                 new AddReturnTypeDeclaration('EventSauce\\EventSourcing\\MessageRepository', 'persist', new VoidType()),
                 new AddReturnTypeDeclaration('EventSauce\\EventSourcing\\MessageRepository', 'persistEvents', new VoidType()),
