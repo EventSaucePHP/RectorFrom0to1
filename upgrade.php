@@ -14,13 +14,13 @@ use Rector\TypeDeclaration\ValueObject\AddReturnTypeDeclaration;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symplify\SymfonyPhpConfig\ValueObjectInliner;
 
-function upgradeEventSauceFrom0to1(ContainerConfigurator $containerConfigurator): void {
+function upgradeEventSauceFrom0to1(ContainerConfigurator $containerConfigurator, $version = '^1.0'): void {
     $services = $containerConfigurator->services();
 
     $services->set(ChangePackageVersionComposerRector::class)
         ->call('configure', [[
             ChangePackageVersionComposerRector::PACKAGES_AND_VERSIONS => ValueObjectInliner::inline([
-                new PackageAndVersion('eventsauce/eventsauce', 'dev-version/1.0.0'),
+                new PackageAndVersion('eventsauce/eventsauce', $version),
             ]),
         ]]);
 

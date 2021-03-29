@@ -5,7 +5,7 @@ use Rector\Core\ValueObject\PhpVersion;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
-    upgradeEventSauceFrom0to1($containerConfigurator);
+    upgradeEventSauceFrom0to1($containerConfigurator, 'dev-version/1.0.0');
 
     $parameters = $containerConfigurator->parameters();
     $parameters->set(Option::PHP_VERSION_FEATURES, PhpVersion::PHP_80);
