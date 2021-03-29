@@ -2,12 +2,15 @@
 
 declare(strict_types=1);
 
+use PHPStan\Type\VoidType;
 use Rector\Composer\Rector\ChangePackageVersionComposerRector;
 use Rector\Composer\ValueObject\PackageAndVersion;
 use Rector\Renaming\Rector\MethodCall\RenameMethodRector;
 use Rector\Renaming\Rector\Name\RenameClassRector;
 use Rector\Renaming\Rector\Namespace_\RenameNamespaceRector;
 use Rector\Renaming\ValueObject\MethodCallRename;
+use Rector\TypeDeclaration\Rector\ClassMethod\AddReturnTypeDeclarationRector;
+use Rector\TypeDeclaration\ValueObject\AddReturnTypeDeclaration;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symplify\SymfonyPhpConfig\ValueObjectInliner;
 
@@ -21,6 +24,12 @@ function upgradeEventSauceFrom0to1(ContainerConfigurator $containerConfigurator)
             ]),
         ]]);
 
+    $services->set(AddReturnTypeDeclarationRector::class)
+        ->call('configure', [[
+            AddReturnTypeDeclarationRector::METHOD_RETURN_TYPES => ValueObjectInliner::inline([
+                new AddReturnTypeDeclaration('EventSauce\\EventSourcing\\Consumer', 'handle', new VoidType())
+            ])
+        ]]);
     $services->set(RenameNamespaceRector::class)
         ->call('configure', [[
             RenameNamespaceRector::OLD_TO_NEW_NAMESPACES => [
