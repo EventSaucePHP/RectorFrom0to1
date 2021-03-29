@@ -1,1 +1,0 @@
-C:37:"PHPUnit\Runner\DefaultTestResultCache":206:{a:2:{s:7:"defects";a:1:{s:67:"EventSauce\ExampleProject\ExampleAggregateTest::emitting_some_event";i:4;}s:5:"times";a:1:{s:67:"EventSauce\ExampleProject\ExampleAggregateTest::emitting_some_event";d:0.007;}}}
