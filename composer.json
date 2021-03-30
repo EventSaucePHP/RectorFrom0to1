@@ -25,7 +25,7 @@
             "email": "info@frankdejonge.nl"
         }
     ],
-    "require": {
+    "require-dev": {
         "eventsauce/eventsauce": "^0.8.2",
         "phpunit/phpunit": "^9.5",
         "league/flysystem": "^2.0"
