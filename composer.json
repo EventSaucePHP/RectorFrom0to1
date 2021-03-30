@@ -15,7 +15,7 @@
             "EventSauce\\ExampleProject\\": "src"
         }
     },
-    "require-dev": {
+    "require": {
         "rector/rector": "^0.10.3"
     },
     "license": "MIT",
