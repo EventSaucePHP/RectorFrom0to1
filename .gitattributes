@@ -1,6 +1,8 @@
 * text=auto
 
 /.github export-ignore
+/index.phpunit
+/rector.php
 /src export-ignore
 /messages export-ignore
 /.gitattributes export-ignore
