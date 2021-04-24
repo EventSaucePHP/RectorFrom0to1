@@ -43,7 +43,7 @@ function upgradeEventSauceFrom0to1(ContainerConfigurator $containerConfigurator,
     $services->set(RenameClassRector::class)
         ->call('configure', [[
             RenameClassRector::OLD_TO_NEW_CLASSES => [
-                'EventSauce\\EventSourcing\\InvalidAggregateRootReconstitutionException' => 'EventSauce\\EventSourcing\\UnableToReconstructAggregateRoot',
+                'EventSauce\\EventSourcing\\InvalidAggregateRootReconstitutionException' => 'EventSauce\\EventSourcing\\UnableToReconstituteAggregateRoot',
                 'EventSauce\\EventSourcing\\Consumer' => 'EventSauce\\EventSourcing\\MessageConsumer',
                 'EventSauce\\EventSourcing\\AggregateRootTestCase' => 'EventSauce\\EventSourcing\\TestUtilities\\AggregateRootTestCase',
             ]
